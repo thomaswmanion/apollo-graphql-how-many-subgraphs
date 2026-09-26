@@ -32,8 +32,8 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
   * **Apollo Router ($N=X$)**: Apollo Router acting as a gateway in front of $X$ separate microservice subgraphs.
 
 * **The Rows:**
-  * **Wide Query**: A single query that requests fields from **all $N$ subgraphs simultaneously** (worst-case distributed fan-out).
-  * **Narrow Query**: A query that only requests fields from **1 subgraph**, even though $N$ total subgraphs exist in the schema (best-case routing).
+  * **Cross-Domain Composite Query ("Wide")**: A single query requesting fields spanning **all $N$ subgraphs simultaneously**. This tests the Router's worst-case coordination overhead, network dispatching, and JSON stitching.
+  * **Targeted Single-Domain Query ("Narrow")**: A query that only requests fields owned by **1 subgraph**, even though $N$ total subgraphs exist in the supergraph schema. This represents the ideal federation scenario: **offloading traffic to an isolated microservice** without cross-service network fan-out.
   * **RPS (Requests Per Second)**: Throughput—how many queries the system can complete each second (*higher is better*).
   * **p50 Latency**: Median response time—what the typical user experiences (*lower is better*).
   * **p99 Latency**: Tail latency—the slowest 1% of requests (*lower is better*).
@@ -42,6 +42,10 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
   * **Router Memory**: RAM used by the Apollo Router process (*lower is better*).
 
 ---
+
+> 💡 **The Two Faces of Federation: Work Offloading vs. Fan-Out Amplification**
+> * **The Promise (Work Offloading):** In microservices, subgraphs allow different teams to scale infrastructure independently. If Query A targets `User Subgraph` and Query B targets `Order Subgraph`, the work is partitioned horizontally. Our **Targeted ("Narrow")** tests prove that Apollo Router adds virtually **zero warm overhead** (~0.2ms) for single-subgraph queries, even with 400 subgraphs registered in the supergraph!
+> * **The Trap (Fan-Out Amplification):** When a frontend page stitches fields across 10, 50, or 100 subgraphs in a *single* query, the Router is forced to fan out concurrent HTTP calls to every service. Instead of distributing load, 1 incoming request multiplies into $N$ internal requests. Our **Cross-Domain ("Wide")** tests measure this exact bottleneck.
 
 ### The Benchmark Comparison Matrix (Scale Progression)
 
