@@ -1,0 +1,150 @@
+schema
+  @link(url: "https://specs.apollo.dev/link/v1.0")
+  @link(url: "https://specs.apollo.dev/join/v0.3", for: EXECUTION)
+{
+  query: Query
+}
+
+directive @join__enumValue(graph: join__Graph!) repeatable on ENUM_VALUE
+
+directive @join__field(graph: join__Graph, requires: join__FieldSet, provides: join__FieldSet, type: String, external: Boolean, override: String, usedOverridden: Boolean) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+directive @join__graph(name: String!, url: String!) on ENUM_VALUE
+
+directive @join__implements(graph: join__Graph!, interface: String!) repeatable on OBJECT | INTERFACE
+
+directive @join__type(graph: join__Graph!, key: join__FieldSet, extension: Boolean! = false, resolvable: Boolean! = true, isInterfaceObject: Boolean! = false) repeatable on OBJECT | INTERFACE | UNION | ENUM | INPUT_OBJECT | SCALAR
+
+directive @join__unionMember(graph: join__Graph!, member: String!) repeatable on UNION
+
+directive @link(url: String, as: String, for: link__Purpose, import: [link__Import]) repeatable on SCHEMA
+
+scalar join__FieldSet
+
+enum join__Graph {
+  SUBGRAPH_1_ @join__graph(name: "subgraph_1", url: "http://127.0.0.1:4001/subgraph/1")
+  SUBGRAPH_10_ @join__graph(name: "subgraph_10", url: "http://127.0.0.1:4001/subgraph/10")
+  SUBGRAPH_11_ @join__graph(name: "subgraph_11", url: "http://127.0.0.1:4001/subgraph/11")
+  SUBGRAPH_12_ @join__graph(name: "subgraph_12", url: "http://127.0.0.1:4001/subgraph/12")
+  SUBGRAPH_13_ @join__graph(name: "subgraph_13", url: "http://127.0.0.1:4001/subgraph/13")
+  SUBGRAPH_14_ @join__graph(name: "subgraph_14", url: "http://127.0.0.1:4001/subgraph/14")
+  SUBGRAPH_15_ @join__graph(name: "subgraph_15", url: "http://127.0.0.1:4001/subgraph/15")
+  SUBGRAPH_16_ @join__graph(name: "subgraph_16", url: "http://127.0.0.1:4001/subgraph/16")
+  SUBGRAPH_17_ @join__graph(name: "subgraph_17", url: "http://127.0.0.1:4001/subgraph/17")
+  SUBGRAPH_18_ @join__graph(name: "subgraph_18", url: "http://127.0.0.1:4001/subgraph/18")
+  SUBGRAPH_19_ @join__graph(name: "subgraph_19", url: "http://127.0.0.1:4001/subgraph/19")
+  SUBGRAPH_2_ @join__graph(name: "subgraph_2", url: "http://127.0.0.1:4001/subgraph/2")
+  SUBGRAPH_20_ @join__graph(name: "subgraph_20", url: "http://127.0.0.1:4001/subgraph/20")
+  SUBGRAPH_3_ @join__graph(name: "subgraph_3", url: "http://127.0.0.1:4001/subgraph/3")
+  SUBGRAPH_4_ @join__graph(name: "subgraph_4", url: "http://127.0.0.1:4001/subgraph/4")
+  SUBGRAPH_5_ @join__graph(name: "subgraph_5", url: "http://127.0.0.1:4001/subgraph/5")
+  SUBGRAPH_6_ @join__graph(name: "subgraph_6", url: "http://127.0.0.1:4001/subgraph/6")
+  SUBGRAPH_7_ @join__graph(name: "subgraph_7", url: "http://127.0.0.1:4001/subgraph/7")
+  SUBGRAPH_8_ @join__graph(name: "subgraph_8", url: "http://127.0.0.1:4001/subgraph/8")
+  SUBGRAPH_9_ @join__graph(name: "subgraph_9", url: "http://127.0.0.1:4001/subgraph/9")
+}
+
+scalar link__Import
+
+enum link__Purpose {
+  """
+  `SECURITY` features provide metadata necessary to securely resolve fields.
+  """
+  SECURITY
+
+  """
+  `EXECUTION` features provide metadata necessary for operation execution.
+  """
+  EXECUTION
+}
+
+type Query
+  @join__type(graph: SUBGRAPH_1_)
+  @join__type(graph: SUBGRAPH_10_)
+  @join__type(graph: SUBGRAPH_11_)
+  @join__type(graph: SUBGRAPH_12_)
+  @join__type(graph: SUBGRAPH_13_)
+  @join__type(graph: SUBGRAPH_14_)
+  @join__type(graph: SUBGRAPH_15_)
+  @join__type(graph: SUBGRAPH_16_)
+  @join__type(graph: SUBGRAPH_17_)
+  @join__type(graph: SUBGRAPH_18_)
+  @join__type(graph: SUBGRAPH_19_)
+  @join__type(graph: SUBGRAPH_2_)
+  @join__type(graph: SUBGRAPH_20_)
+  @join__type(graph: SUBGRAPH_3_)
+  @join__type(graph: SUBGRAPH_4_)
+  @join__type(graph: SUBGRAPH_5_)
+  @join__type(graph: SUBGRAPH_6_)
+  @join__type(graph: SUBGRAPH_7_)
+  @join__type(graph: SUBGRAPH_8_)
+  @join__type(graph: SUBGRAPH_9_)
+{
+  user(id: ID!): User @join__field(graph: SUBGRAPH_1_)
+  ping_1: String @join__field(graph: SUBGRAPH_1_)
+  ping_10: String @join__field(graph: SUBGRAPH_10_)
+  ping_11: String @join__field(graph: SUBGRAPH_11_)
+  ping_12: String @join__field(graph: SUBGRAPH_12_)
+  ping_13: String @join__field(graph: SUBGRAPH_13_)
+  ping_14: String @join__field(graph: SUBGRAPH_14_)
+  ping_15: String @join__field(graph: SUBGRAPH_15_)
+  ping_16: String @join__field(graph: SUBGRAPH_16_)
+  ping_17: String @join__field(graph: SUBGRAPH_17_)
+  ping_18: String @join__field(graph: SUBGRAPH_18_)
+  ping_19: String @join__field(graph: SUBGRAPH_19_)
+  ping_2: String @join__field(graph: SUBGRAPH_2_)
+  ping_20: String @join__field(graph: SUBGRAPH_20_)
+  ping_3: String @join__field(graph: SUBGRAPH_3_)
+  ping_4: String @join__field(graph: SUBGRAPH_4_)
+  ping_5: String @join__field(graph: SUBGRAPH_5_)
+  ping_6: String @join__field(graph: SUBGRAPH_6_)
+  ping_7: String @join__field(graph: SUBGRAPH_7_)
+  ping_8: String @join__field(graph: SUBGRAPH_8_)
+  ping_9: String @join__field(graph: SUBGRAPH_9_)
+}
+
+type User
+  @join__type(graph: SUBGRAPH_1_, key: "id")
+  @join__type(graph: SUBGRAPH_10_, key: "id")
+  @join__type(graph: SUBGRAPH_11_, key: "id")
+  @join__type(graph: SUBGRAPH_12_, key: "id")
+  @join__type(graph: SUBGRAPH_13_, key: "id")
+  @join__type(graph: SUBGRAPH_14_, key: "id")
+  @join__type(graph: SUBGRAPH_15_, key: "id")
+  @join__type(graph: SUBGRAPH_16_, key: "id")
+  @join__type(graph: SUBGRAPH_17_, key: "id")
+  @join__type(graph: SUBGRAPH_18_, key: "id")
+  @join__type(graph: SUBGRAPH_19_, key: "id")
+  @join__type(graph: SUBGRAPH_2_, key: "id")
+  @join__type(graph: SUBGRAPH_20_, key: "id")
+  @join__type(graph: SUBGRAPH_3_, key: "id")
+  @join__type(graph: SUBGRAPH_4_, key: "id")
+  @join__type(graph: SUBGRAPH_5_, key: "id")
+  @join__type(graph: SUBGRAPH_6_, key: "id")
+  @join__type(graph: SUBGRAPH_7_, key: "id")
+  @join__type(graph: SUBGRAPH_8_, key: "id")
+  @join__type(graph: SUBGRAPH_9_, key: "id")
+{
+  id: ID!
+  name: String @join__field(graph: SUBGRAPH_1_)
+  field_1: String @join__field(graph: SUBGRAPH_1_)
+  field_10: String @join__field(graph: SUBGRAPH_10_)
+  field_11: String @join__field(graph: SUBGRAPH_11_)
+  field_12: String @join__field(graph: SUBGRAPH_12_)
+  field_13: String @join__field(graph: SUBGRAPH_13_)
+  field_14: String @join__field(graph: SUBGRAPH_14_)
+  field_15: String @join__field(graph: SUBGRAPH_15_)
+  field_16: String @join__field(graph: SUBGRAPH_16_)
+  field_17: String @join__field(graph: SUBGRAPH_17_)
+  field_18: String @join__field(graph: SUBGRAPH_18_)
+  field_19: String @join__field(graph: SUBGRAPH_19_)
+  field_2: String @join__field(graph: SUBGRAPH_2_)
+  field_20: String @join__field(graph: SUBGRAPH_20_)
+  field_3: String @join__field(graph: SUBGRAPH_3_)
+  field_4: String @join__field(graph: SUBGRAPH_4_)
+  field_5: String @join__field(graph: SUBGRAPH_5_)
+  field_6: String @join__field(graph: SUBGRAPH_6_)
+  field_7: String @join__field(graph: SUBGRAPH_7_)
+  field_8: String @join__field(graph: SUBGRAPH_8_)
+  field_9: String @join__field(graph: SUBGRAPH_9_)
+}

@@ -1,0 +1,662 @@
+{
+  "timestamp": "2026-09-25T14:30:14.896Z",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "compositionMetrics": {
+    "1": {
+      "compositionTimeMs": 779,
+      "schemaSizeKb": 1.58
+    },
+    "2": {
+      "compositionTimeMs": 532,
+      "schemaSizeKb": 1.97
+    },
+    "5": {
+      "compositionTimeMs": 567,
+      "schemaSizeKb": 2.75
+    },
+    "10": {
+      "compositionTimeMs": 531,
+      "schemaSizeKb": 4.07
+    },
+    "20": {
+      "compositionTimeMs": 549,
+      "schemaSizeKb": 6.77
+    },
+    "35": {
+      "compositionTimeMs": 798,
+      "schemaSizeKb": 10.83
+    },
+    "50": {
+      "compositionTimeMs": 808,
+      "schemaSizeKb": 14.89
+    },
+    "75": {
+      "compositionTimeMs": 1067,
+      "schemaSizeKb": 21.65
+    },
+    "100": {
+      "compositionTimeMs": 1426,
+      "schemaSizeKb": 28.42
+    },
+    "150": {
+      "compositionTimeMs": 2289,
+      "schemaSizeKb": 42.39
+    },
+    "200": {
+      "compositionTimeMs": 3833,
+      "schemaSizeKb": 56.35
+    },
+    "250": {
+      "compositionTimeMs": 8151,
+      "schemaSizeKb": 70.32
+    }
+  },
+  "scalingN": [
+    {
+      "n": 1,
+      "compositionTimeMs": 779,
+      "schemaSizeKb": 1.58,
+      "routerMemoryMb": 42.13,
+      "monograph": {
+        "narrow": {
+          "rps": 2375.3,
+          "p50": 3.47,
+          "p95": 7.92,
+          "p99": 8.34,
+          "coldMs": 3.22
+        },
+        "wide": {
+          "rps": 3076.4,
+          "p50": 2.67,
+          "p95": 6.95,
+          "p99": 7.2,
+          "coldMs": 1.64
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 2608.9,
+          "p50": 2.88,
+          "p95": 8.33,
+          "p99": 8.45,
+          "coldMs": 8.44
+        },
+        "wide": {
+          "rps": 2709.4,
+          "p50": 2.94,
+          "p95": 7.13,
+          "p99": 7.43,
+          "coldMs": 4.9
+        }
+      }
+    },
+    {
+      "n": 2,
+      "compositionTimeMs": 532,
+      "schemaSizeKb": 1.97,
+      "routerMemoryMb": 42.5,
+      "monograph": {
+        "narrow": {
+          "rps": 3013.8,
+          "p50": 2.69,
+          "p95": 6.05,
+          "p99": 6.24,
+          "coldMs": 1.83
+        },
+        "wide": {
+          "rps": 2860.4,
+          "p50": 3.4,
+          "p95": 5.53,
+          "p99": 5.79,
+          "coldMs": 1.16
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3073.9,
+          "p50": 2.78,
+          "p95": 6.39,
+          "p99": 7.57,
+          "coldMs": 6.92
+        },
+        "wide": {
+          "rps": 1506,
+          "p50": 5.88,
+          "p95": 13.05,
+          "p99": 13.58,
+          "coldMs": 7.31
+        }
+      }
+    },
+    {
+      "n": 5,
+      "compositionTimeMs": 567,
+      "schemaSizeKb": 2.75,
+      "routerMemoryMb": 42.77,
+      "monograph": {
+        "narrow": {
+          "rps": 2926.3,
+          "p50": 2.81,
+          "p95": 6.65,
+          "p99": 7.99,
+          "coldMs": 3.19
+        },
+        "wide": {
+          "rps": 2881.2,
+          "p50": 2.7,
+          "p95": 7.05,
+          "p99": 7.44,
+          "coldMs": 2.76
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 2309.8,
+          "p50": 3.3,
+          "p95": 10.8,
+          "p99": 11.01,
+          "coldMs": 7.79
+        },
+        "wide": {
+          "rps": 646.3,
+          "p50": 14.09,
+          "p95": 23.52,
+          "p99": 23.77,
+          "coldMs": 10.08
+        }
+      }
+    },
+    {
+      "n": 10,
+      "compositionTimeMs": 531,
+      "schemaSizeKb": 4.07,
+      "routerMemoryMb": 44.96,
+      "monograph": {
+        "narrow": {
+          "rps": 2616.9,
+          "p50": 3.44,
+          "p95": 6.58,
+          "p99": 6.97,
+          "coldMs": 3.46
+        },
+        "wide": {
+          "rps": 2784.4,
+          "p50": 2.74,
+          "p95": 7.52,
+          "p99": 7.79,
+          "coldMs": 1.42
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3100.2,
+          "p50": 2.44,
+          "p95": 7.18,
+          "p99": 7.46,
+          "coldMs": 6.85
+        },
+        "wide": {
+          "rps": 337.1,
+          "p50": 26.89,
+          "p95": 45.25,
+          "p99": 46.05,
+          "coldMs": 13.2
+        }
+      }
+    },
+    {
+      "n": 20,
+      "compositionTimeMs": 549,
+      "schemaSizeKb": 6.77,
+      "routerMemoryMb": 46.2,
+      "monograph": {
+        "narrow": {
+          "rps": 3123.7,
+          "p50": 2.51,
+          "p95": 6.65,
+          "p99": 6.87,
+          "coldMs": 2
+        },
+        "wide": {
+          "rps": 3323,
+          "p50": 2.18,
+          "p95": 5.81,
+          "p99": 6.1,
+          "coldMs": 1.43
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3091.8,
+          "p50": 2.54,
+          "p95": 7.09,
+          "p99": 7.97,
+          "coldMs": 7.72
+        },
+        "wide": {
+          "rps": 200,
+          "p50": 44.36,
+          "p95": 85.18,
+          "p99": 87.75,
+          "coldMs": 21.01
+        }
+      }
+    },
+    {
+      "n": 35,
+      "compositionTimeMs": 798,
+      "schemaSizeKb": 10.83,
+      "routerMemoryMb": 53.09,
+      "monograph": {
+        "narrow": {
+          "rps": 4633.9,
+          "p50": 1.24,
+          "p95": 3.87,
+          "p99": 4.04,
+          "coldMs": 1.54
+        },
+        "wide": {
+          "rps": 3842.6,
+          "p50": 1.55,
+          "p95": 5.09,
+          "p99": 5.47,
+          "coldMs": 1.94
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3519,
+          "p50": 1.69,
+          "p95": 5.73,
+          "p99": 6.11,
+          "coldMs": 8.41
+        },
+        "wide": {
+          "rps": 147.4,
+          "p50": 48.53,
+          "p95": 111.25,
+          "p99": 135.35,
+          "coldMs": 31.55
+        }
+      }
+    },
+    {
+      "n": 50,
+      "compositionTimeMs": 808,
+      "schemaSizeKb": 14.89,
+      "routerMemoryMb": 58.37,
+      "monograph": {
+        "narrow": {
+          "rps": 3835.2,
+          "p50": 1.63,
+          "p95": 4.39,
+          "p99": 4.55,
+          "coldMs": 1.63
+        },
+        "wide": {
+          "rps": 3617.8,
+          "p50": 1.61,
+          "p95": 5.05,
+          "p99": 5.31,
+          "coldMs": 1.41
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3151,
+          "p50": 1.92,
+          "p95": 5.84,
+          "p99": 6.35,
+          "coldMs": 7.56
+        },
+        "wide": {
+          "rps": 95.8,
+          "p50": 72.58,
+          "p95": 171.98,
+          "p99": 184.69,
+          "coldMs": 44.35
+        }
+      }
+    },
+    {
+      "n": 75,
+      "compositionTimeMs": 1067,
+      "schemaSizeKb": 21.65,
+      "routerMemoryMb": 65.51,
+      "monograph": {
+        "narrow": {
+          "rps": 4419.9,
+          "p50": 0.86,
+          "p95": 2.83,
+          "p99": 2.99,
+          "coldMs": 1.26
+        },
+        "wide": {
+          "rps": 3437.3,
+          "p50": 0.9,
+          "p95": 3.69,
+          "p99": 3.81,
+          "coldMs": 1.16
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3295.7,
+          "p50": 1.08,
+          "p95": 4.13,
+          "p99": 4.42,
+          "coldMs": 8.48
+        },
+        "wide": {
+          "rps": 85.4,
+          "p50": 55.2,
+          "p95": 103.49,
+          "p99": 104.59,
+          "coldMs": 60.3
+        }
+      }
+    },
+    {
+      "n": 100,
+      "compositionTimeMs": 1426,
+      "schemaSizeKb": 28.42,
+      "routerMemoryMb": 76.53,
+      "monograph": {
+        "narrow": {
+          "rps": 3482.1,
+          "p50": 1.05,
+          "p95": 3.75,
+          "p99": 3.81,
+          "coldMs": 1.35
+        },
+        "wide": {
+          "rps": 3830.6,
+          "p50": 0.9,
+          "p95": 3.86,
+          "p99": 4,
+          "coldMs": 1.03
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3180.7,
+          "p50": 1.08,
+          "p95": 4.25,
+          "p99": 4.56,
+          "coldMs": 7.42
+        },
+        "wide": {
+          "rps": 66.1,
+          "p50": 72.11,
+          "p95": 120,
+          "p99": 120.07,
+          "coldMs": 90.16
+        }
+      }
+    },
+    {
+      "n": 150,
+      "compositionTimeMs": 2289,
+      "schemaSizeKb": 42.39,
+      "routerMemoryMb": 111.3,
+      "monograph": {
+        "narrow": {
+          "rps": 4123.6,
+          "p50": 0.87,
+          "p95": 3.35,
+          "p99": 3.45,
+          "coldMs": 2.24
+        },
+        "wide": {
+          "rps": 3473.7,
+          "p50": 1.1,
+          "p95": 3.04,
+          "p99": 3.23,
+          "coldMs": 1.84
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3242.6,
+          "p50": 1.01,
+          "p95": 5.09,
+          "p99": 5.34,
+          "coldMs": 13.34
+        },
+        "wide": {
+          "rps": 44.8,
+          "p50": 90.89,
+          "p95": 219.16,
+          "p99": 228.95,
+          "coldMs": 186.95
+        }
+      }
+    },
+    {
+      "n": 200,
+      "compositionTimeMs": 3833,
+      "schemaSizeKb": 56.35,
+      "routerMemoryMb": 164.33,
+      "monograph": {
+        "narrow": {
+          "rps": 4057.2,
+          "p50": 0.91,
+          "p95": 2.39,
+          "p99": 2.63,
+          "coldMs": 1.8
+        },
+        "wide": {
+          "rps": 2674.1,
+          "p50": 1.52,
+          "p95": 2.86,
+          "p99": 3.04,
+          "coldMs": 1.23
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3612.7,
+          "p50": 1.01,
+          "p95": 3.85,
+          "p99": 4.14,
+          "coldMs": 14.12
+        },
+        "wide": {
+          "rps": 33.1,
+          "p50": 138.07,
+          "p95": 276.03,
+          "p99": 286.23,
+          "coldMs": 408.63
+        }
+      }
+    },
+    {
+      "n": 250,
+      "compositionTimeMs": 8151,
+      "schemaSizeKb": 70.32,
+      "routerMemoryMb": 245.18,
+      "monograph": {
+        "narrow": {
+          "rps": 3800.1,
+          "p50": 0.9,
+          "p95": 3.55,
+          "p99": 3.66,
+          "coldMs": 1.83
+        },
+        "wide": {
+          "rps": 2833.4,
+          "p50": 1.38,
+          "p95": 3.47,
+          "p99": 3.65,
+          "coldMs": 1.5
+        }
+      },
+      "router": {
+        "narrow": {
+          "rps": 3625.8,
+          "p50": 0.94,
+          "p95": 3.63,
+          "p99": 3.76,
+          "coldMs": 15.66
+        },
+        "wide": {
+          "rps": 24.3,
+          "p50": 208.86,
+          "p95": 335.38,
+          "p99": 344.59,
+          "coldMs": 1104.5
+        }
+      }
+    }
+  ],
+  "runtimes": [
+    {
+      "runtime": "node",
+      "n": 10,
+      "rps": 495.1,
+      "p50": 14.49,
+      "p90": 20.63,
+      "p95": 24.77,
+      "p99": 27.44,
+      "coldMs": 15.51
+    },
+    {
+      "runtime": "bun",
+      "n": 10,
+      "rps": 708.7,
+      "p50": 10.59,
+      "p90": 17.47,
+      "p95": 19.82,
+      "p99": 20.27,
+      "coldMs": 13.6
+    },
+    {
+      "runtime": "rust",
+      "n": 10,
+      "rps": 1934.1,
+      "p50": 2.83,
+      "p90": 9.54,
+      "p95": 12.55,
+      "p99": 13.23,
+      "coldMs": 12.32
+    },
+    {
+      "runtime": "node",
+      "n": 50,
+      "rps": 118.1,
+      "p50": 57.05,
+      "p90": 120.06,
+      "p95": 133.99,
+      "p99": 157.08,
+      "coldMs": 56
+    },
+    {
+      "runtime": "bun",
+      "n": 50,
+      "rps": 194.4,
+      "p50": 36.96,
+      "p90": 62.76,
+      "p95": 66.08,
+      "p99": 78.39,
+      "coldMs": 55.79
+    },
+    {
+      "runtime": "rust",
+      "n": 50,
+      "rps": 459.1,
+      "p50": 11.71,
+      "p90": 43.63,
+      "p95": 52.82,
+      "p99": 90.74,
+      "coldMs": 41.12
+    }
+  ],
+  "resolverDelays": [
+    {
+      "resolverDelayMs": 0,
+      "n": 20,
+      "monograph": {
+        "rps": 3446.3,
+        "p50": 1.86,
+        "p95": 4.33,
+        "p99": 4.6
+      },
+      "router": {
+        "rps": 246.3,
+        "p50": 27.01,
+        "p95": 54.82,
+        "p99": 58.35
+      }
+    },
+    {
+      "resolverDelayMs": 5,
+      "n": 20,
+      "monograph": {
+        "rps": 462.2,
+        "p50": 15.62,
+        "p95": 16.77,
+        "p99": 17.03
+      },
+      "router": {
+        "rps": 172.6,
+        "p50": 42.39,
+        "p95": 56.95,
+        "p99": 57.93
+      }
+    },
+    {
+      "resolverDelayMs": 20,
+      "n": 20,
+      "monograph": {
+        "rps": 230.9,
+        "p50": 31.01,
+        "p95": 32.86,
+        "p99": 33.08
+      },
+      "router": {
+        "rps": 96,
+        "p50": 75.46,
+        "p95": 90.29,
+        "p99": 92.94
+      }
+    }
+  ],
+  "transitDelays": [
+    {
+      "transitDelayMs": 0,
+      "n": 20,
+      "router": {
+        "rps": 252.3,
+        "p50": 27.2,
+        "p95": 57.68,
+        "p99": 64.88
+      }
+    },
+    {
+      "transitDelayMs": 2,
+      "n": 20,
+      "router": {
+        "rps": 243,
+        "p50": 28.72,
+        "p95": 55.42,
+        "p99": 56.25
+      }
+    },
+    {
+      "transitDelayMs": 10,
+      "n": 20,
+      "router": {
+        "rps": 129.3,
+        "p50": 58.99,
+        "p95": 69.28,
+        "p99": 71.38
+      }
+    }
+  ],
+  "summary": {},
+  "durationTotalSec": 120.7
+}

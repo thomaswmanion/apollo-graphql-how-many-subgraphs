@@ -1,0 +1,5 @@
+node_modules/
+bin/
+server_rust/target/
+.DS_Store
+*.log

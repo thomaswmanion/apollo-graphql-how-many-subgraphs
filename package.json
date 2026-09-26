@@ -1,0 +1,25 @@
+{
+  "name": "apollo-graphql-how-many-subgraphs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomaswmanion/apollo-graphql-how-many-subgraphs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thomaswmanion/apollo-graphql-how-many-subgraphs/issues"
+  },
+  "homepage": "https://github.com/thomaswmanion/apollo-graphql-how-many-subgraphs#readme",
+  "dependencies": {
+    "@apollo/subgraph": "^2.15.1",
+    "graphql": "16.8.1"
+  }
+}

@@ -1,0 +1,802 @@
+federation_version: =2.11.0
+subgraphs:
+  subgraph_1:
+    routing_url: http://127.0.0.1:4001/subgraph/1
+    schema:
+      file: ./subgraphs/subgraph_1.graphql
+  subgraph_2:
+    routing_url: http://127.0.0.1:4001/subgraph/2
+    schema:
+      file: ./subgraphs/subgraph_2.graphql
+  subgraph_3:
+    routing_url: http://127.0.0.1:4001/subgraph/3
+    schema:
+      file: ./subgraphs/subgraph_3.graphql
+  subgraph_4:
+    routing_url: http://127.0.0.1:4001/subgraph/4
+    schema:
+      file: ./subgraphs/subgraph_4.graphql
+  subgraph_5:
+    routing_url: http://127.0.0.1:4001/subgraph/5
+    schema:
+      file: ./subgraphs/subgraph_5.graphql
+  subgraph_6:
+    routing_url: http://127.0.0.1:4001/subgraph/6
+    schema:
+      file: ./subgraphs/subgraph_6.graphql
+  subgraph_7:
+    routing_url: http://127.0.0.1:4001/subgraph/7
+    schema:
+      file: ./subgraphs/subgraph_7.graphql
+  subgraph_8:
+    routing_url: http://127.0.0.1:4001/subgraph/8
+    schema:
+      file: ./subgraphs/subgraph_8.graphql
+  subgraph_9:
+    routing_url: http://127.0.0.1:4001/subgraph/9
+    schema:
+      file: ./subgraphs/subgraph_9.graphql
+  subgraph_10:
+    routing_url: http://127.0.0.1:4001/subgraph/10
+    schema:
+      file: ./subgraphs/subgraph_10.graphql
+  subgraph_11:
+    routing_url: http://127.0.0.1:4001/subgraph/11
+    schema:
+      file: ./subgraphs/subgraph_11.graphql
+  subgraph_12:
+    routing_url: http://127.0.0.1:4001/subgraph/12
+    schema:
+      file: ./subgraphs/subgraph_12.graphql
+  subgraph_13:
+    routing_url: http://127.0.0.1:4001/subgraph/13
+    schema:
+      file: ./subgraphs/subgraph_13.graphql
+  subgraph_14:
+    routing_url: http://127.0.0.1:4001/subgraph/14
+    schema:
+      file: ./subgraphs/subgraph_14.graphql
+  subgraph_15:
+    routing_url: http://127.0.0.1:4001/subgraph/15
+    schema:
+      file: ./subgraphs/subgraph_15.graphql
+  subgraph_16:
+    routing_url: http://127.0.0.1:4001/subgraph/16
+    schema:
+      file: ./subgraphs/subgraph_16.graphql
+  subgraph_17:
+    routing_url: http://127.0.0.1:4001/subgraph/17
+    schema:
+      file: ./subgraphs/subgraph_17.graphql
+  subgraph_18:
+    routing_url: http://127.0.0.1:4001/subgraph/18
+    schema:
+      file: ./subgraphs/subgraph_18.graphql
+  subgraph_19:
+    routing_url: http://127.0.0.1:4001/subgraph/19
+    schema:
+      file: ./subgraphs/subgraph_19.graphql
+  subgraph_20:
+    routing_url: http://127.0.0.1:4001/subgraph/20
+    schema:
+      file: ./subgraphs/subgraph_20.graphql
+  subgraph_21:
+    routing_url: http://127.0.0.1:4001/subgraph/21
+    schema:
+      file: ./subgraphs/subgraph_21.graphql
+  subgraph_22:
+    routing_url: http://127.0.0.1:4001/subgraph/22
+    schema:
+      file: ./subgraphs/subgraph_22.graphql
+  subgraph_23:
+    routing_url: http://127.0.0.1:4001/subgraph/23
+    schema:
+      file: ./subgraphs/subgraph_23.graphql
+  subgraph_24:
+    routing_url: http://127.0.0.1:4001/subgraph/24
+    schema:
+      file: ./subgraphs/subgraph_24.graphql
+  subgraph_25:
+    routing_url: http://127.0.0.1:4001/subgraph/25
+    schema:
+      file: ./subgraphs/subgraph_25.graphql
+  subgraph_26:
+    routing_url: http://127.0.0.1:4001/subgraph/26
+    schema:
+      file: ./subgraphs/subgraph_26.graphql
+  subgraph_27:
+    routing_url: http://127.0.0.1:4001/subgraph/27
+    schema:
+      file: ./subgraphs/subgraph_27.graphql
+  subgraph_28:
+    routing_url: http://127.0.0.1:4001/subgraph/28
+    schema:
+      file: ./subgraphs/subgraph_28.graphql
+  subgraph_29:
+    routing_url: http://127.0.0.1:4001/subgraph/29
+    schema:
+      file: ./subgraphs/subgraph_29.graphql
+  subgraph_30:
+    routing_url: http://127.0.0.1:4001/subgraph/30
+    schema:
+      file: ./subgraphs/subgraph_30.graphql
+  subgraph_31:
+    routing_url: http://127.0.0.1:4001/subgraph/31
+    schema:
+      file: ./subgraphs/subgraph_31.graphql
+  subgraph_32:
+    routing_url: http://127.0.0.1:4001/subgraph/32
+    schema:
+      file: ./subgraphs/subgraph_32.graphql
+  subgraph_33:
+    routing_url: http://127.0.0.1:4001/subgraph/33
+    schema:
+      file: ./subgraphs/subgraph_33.graphql
+  subgraph_34:
+    routing_url: http://127.0.0.1:4001/subgraph/34
+    schema:
+      file: ./subgraphs/subgraph_34.graphql
+  subgraph_35:
+    routing_url: http://127.0.0.1:4001/subgraph/35
+    schema:
+      file: ./subgraphs/subgraph_35.graphql
+  subgraph_36:
+    routing_url: http://127.0.0.1:4001/subgraph/36
+    schema:
+      file: ./subgraphs/subgraph_36.graphql
+  subgraph_37:
+    routing_url: http://127.0.0.1:4001/subgraph/37
+    schema:
+      file: ./subgraphs/subgraph_37.graphql
+  subgraph_38:
+    routing_url: http://127.0.0.1:4001/subgraph/38
+    schema:
+      file: ./subgraphs/subgraph_38.graphql
+  subgraph_39:
+    routing_url: http://127.0.0.1:4001/subgraph/39
+    schema:
+      file: ./subgraphs/subgraph_39.graphql
+  subgraph_40:
+    routing_url: http://127.0.0.1:4001/subgraph/40
+    schema:
+      file: ./subgraphs/subgraph_40.graphql
+  subgraph_41:
+    routing_url: http://127.0.0.1:4001/subgraph/41
+    schema:
+      file: ./subgraphs/subgraph_41.graphql
+  subgraph_42:
+    routing_url: http://127.0.0.1:4001/subgraph/42
+    schema:
+      file: ./subgraphs/subgraph_42.graphql
+  subgraph_43:
+    routing_url: http://127.0.0.1:4001/subgraph/43
+    schema:
+      file: ./subgraphs/subgraph_43.graphql
+  subgraph_44:
+    routing_url: http://127.0.0.1:4001/subgraph/44
+    schema:
+      file: ./subgraphs/subgraph_44.graphql
+  subgraph_45:
+    routing_url: http://127.0.0.1:4001/subgraph/45
+    schema:
+      file: ./subgraphs/subgraph_45.graphql
+  subgraph_46:
+    routing_url: http://127.0.0.1:4001/subgraph/46
+    schema:
+      file: ./subgraphs/subgraph_46.graphql
+  subgraph_47:
+    routing_url: http://127.0.0.1:4001/subgraph/47
+    schema:
+      file: ./subgraphs/subgraph_47.graphql
+  subgraph_48:
+    routing_url: http://127.0.0.1:4001/subgraph/48
+    schema:
+      file: ./subgraphs/subgraph_48.graphql
+  subgraph_49:
+    routing_url: http://127.0.0.1:4001/subgraph/49
+    schema:
+      file: ./subgraphs/subgraph_49.graphql
+  subgraph_50:
+    routing_url: http://127.0.0.1:4001/subgraph/50
+    schema:
+      file: ./subgraphs/subgraph_50.graphql
+  subgraph_51:
+    routing_url: http://127.0.0.1:4001/subgraph/51
+    schema:
+      file: ./subgraphs/subgraph_51.graphql
+  subgraph_52:
+    routing_url: http://127.0.0.1:4001/subgraph/52
+    schema:
+      file: ./subgraphs/subgraph_52.graphql
+  subgraph_53:
+    routing_url: http://127.0.0.1:4001/subgraph/53
+    schema:
+      file: ./subgraphs/subgraph_53.graphql
+  subgraph_54:
+    routing_url: http://127.0.0.1:4001/subgraph/54
+    schema:
+      file: ./subgraphs/subgraph_54.graphql
+  subgraph_55:
+    routing_url: http://127.0.0.1:4001/subgraph/55
+    schema:
+      file: ./subgraphs/subgraph_55.graphql
+  subgraph_56:
+    routing_url: http://127.0.0.1:4001/subgraph/56
+    schema:
+      file: ./subgraphs/subgraph_56.graphql
+  subgraph_57:
+    routing_url: http://127.0.0.1:4001/subgraph/57
+    schema:
+      file: ./subgraphs/subgraph_57.graphql
+  subgraph_58:
+    routing_url: http://127.0.0.1:4001/subgraph/58
+    schema:
+      file: ./subgraphs/subgraph_58.graphql
+  subgraph_59:
+    routing_url: http://127.0.0.1:4001/subgraph/59
+    schema:
+      file: ./subgraphs/subgraph_59.graphql
+  subgraph_60:
+    routing_url: http://127.0.0.1:4001/subgraph/60
+    schema:
+      file: ./subgraphs/subgraph_60.graphql
+  subgraph_61:
+    routing_url: http://127.0.0.1:4001/subgraph/61
+    schema:
+      file: ./subgraphs/subgraph_61.graphql
+  subgraph_62:
+    routing_url: http://127.0.0.1:4001/subgraph/62
+    schema:
+      file: ./subgraphs/subgraph_62.graphql
+  subgraph_63:
+    routing_url: http://127.0.0.1:4001/subgraph/63
+    schema:
+      file: ./subgraphs/subgraph_63.graphql
+  subgraph_64:
+    routing_url: http://127.0.0.1:4001/subgraph/64
+    schema:
+      file: ./subgraphs/subgraph_64.graphql
+  subgraph_65:
+    routing_url: http://127.0.0.1:4001/subgraph/65
+    schema:
+      file: ./subgraphs/subgraph_65.graphql
+  subgraph_66:
+    routing_url: http://127.0.0.1:4001/subgraph/66
+    schema:
+      file: ./subgraphs/subgraph_66.graphql
+  subgraph_67:
+    routing_url: http://127.0.0.1:4001/subgraph/67
+    schema:
+      file: ./subgraphs/subgraph_67.graphql
+  subgraph_68:
+    routing_url: http://127.0.0.1:4001/subgraph/68
+    schema:
+      file: ./subgraphs/subgraph_68.graphql
+  subgraph_69:
+    routing_url: http://127.0.0.1:4001/subgraph/69
+    schema:
+      file: ./subgraphs/subgraph_69.graphql
+  subgraph_70:
+    routing_url: http://127.0.0.1:4001/subgraph/70
+    schema:
+      file: ./subgraphs/subgraph_70.graphql
+  subgraph_71:
+    routing_url: http://127.0.0.1:4001/subgraph/71
+    schema:
+      file: ./subgraphs/subgraph_71.graphql
+  subgraph_72:
+    routing_url: http://127.0.0.1:4001/subgraph/72
+    schema:
+      file: ./subgraphs/subgraph_72.graphql
+  subgraph_73:
+    routing_url: http://127.0.0.1:4001/subgraph/73
+    schema:
+      file: ./subgraphs/subgraph_73.graphql
+  subgraph_74:
+    routing_url: http://127.0.0.1:4001/subgraph/74
+    schema:
+      file: ./subgraphs/subgraph_74.graphql
+  subgraph_75:
+    routing_url: http://127.0.0.1:4001/subgraph/75
+    schema:
+      file: ./subgraphs/subgraph_75.graphql
+  subgraph_76:
+    routing_url: http://127.0.0.1:4001/subgraph/76
+    schema:
+      file: ./subgraphs/subgraph_76.graphql
+  subgraph_77:
+    routing_url: http://127.0.0.1:4001/subgraph/77
+    schema:
+      file: ./subgraphs/subgraph_77.graphql
+  subgraph_78:
+    routing_url: http://127.0.0.1:4001/subgraph/78
+    schema:
+      file: ./subgraphs/subgraph_78.graphql
+  subgraph_79:
+    routing_url: http://127.0.0.1:4001/subgraph/79
+    schema:
+      file: ./subgraphs/subgraph_79.graphql
+  subgraph_80:
+    routing_url: http://127.0.0.1:4001/subgraph/80
+    schema:
+      file: ./subgraphs/subgraph_80.graphql
+  subgraph_81:
+    routing_url: http://127.0.0.1:4001/subgraph/81
+    schema:
+      file: ./subgraphs/subgraph_81.graphql
+  subgraph_82:
+    routing_url: http://127.0.0.1:4001/subgraph/82
+    schema:
+      file: ./subgraphs/subgraph_82.graphql
+  subgraph_83:
+    routing_url: http://127.0.0.1:4001/subgraph/83
+    schema:
+      file: ./subgraphs/subgraph_83.graphql
+  subgraph_84:
+    routing_url: http://127.0.0.1:4001/subgraph/84
+    schema:
+      file: ./subgraphs/subgraph_84.graphql
+  subgraph_85:
+    routing_url: http://127.0.0.1:4001/subgraph/85
+    schema:
+      file: ./subgraphs/subgraph_85.graphql
+  subgraph_86:
+    routing_url: http://127.0.0.1:4001/subgraph/86
+    schema:
+      file: ./subgraphs/subgraph_86.graphql
+  subgraph_87:
+    routing_url: http://127.0.0.1:4001/subgraph/87
+    schema:
+      file: ./subgraphs/subgraph_87.graphql
+  subgraph_88:
+    routing_url: http://127.0.0.1:4001/subgraph/88
+    schema:
+      file: ./subgraphs/subgraph_88.graphql
+  subgraph_89:
+    routing_url: http://127.0.0.1:4001/subgraph/89
+    schema:
+      file: ./subgraphs/subgraph_89.graphql
+  subgraph_90:
+    routing_url: http://127.0.0.1:4001/subgraph/90
+    schema:
+      file: ./subgraphs/subgraph_90.graphql
+  subgraph_91:
+    routing_url: http://127.0.0.1:4001/subgraph/91
+    schema:
+      file: ./subgraphs/subgraph_91.graphql
+  subgraph_92:
+    routing_url: http://127.0.0.1:4001/subgraph/92
+    schema:
+      file: ./subgraphs/subgraph_92.graphql
+  subgraph_93:
+    routing_url: http://127.0.0.1:4001/subgraph/93
+    schema:
+      file: ./subgraphs/subgraph_93.graphql
+  subgraph_94:
+    routing_url: http://127.0.0.1:4001/subgraph/94
+    schema:
+      file: ./subgraphs/subgraph_94.graphql
+  subgraph_95:
+    routing_url: http://127.0.0.1:4001/subgraph/95
+    schema:
+      file: ./subgraphs/subgraph_95.graphql
+  subgraph_96:
+    routing_url: http://127.0.0.1:4001/subgraph/96
+    schema:
+      file: ./subgraphs/subgraph_96.graphql
+  subgraph_97:
+    routing_url: http://127.0.0.1:4001/subgraph/97
+    schema:
+      file: ./subgraphs/subgraph_97.graphql
+  subgraph_98:
+    routing_url: http://127.0.0.1:4001/subgraph/98
+    schema:
+      file: ./subgraphs/subgraph_98.graphql
+  subgraph_99:
+    routing_url: http://127.0.0.1:4001/subgraph/99
+    schema:
+      file: ./subgraphs/subgraph_99.graphql
+  subgraph_100:
+    routing_url: http://127.0.0.1:4001/subgraph/100
+    schema:
+      file: ./subgraphs/subgraph_100.graphql
+  subgraph_101:
+    routing_url: http://127.0.0.1:4001/subgraph/101
+    schema:
+      file: ./subgraphs/subgraph_101.graphql
+  subgraph_102:
+    routing_url: http://127.0.0.1:4001/subgraph/102
+    schema:
+      file: ./subgraphs/subgraph_102.graphql
+  subgraph_103:
+    routing_url: http://127.0.0.1:4001/subgraph/103
+    schema:
+      file: ./subgraphs/subgraph_103.graphql
+  subgraph_104:
+    routing_url: http://127.0.0.1:4001/subgraph/104
+    schema:
+      file: ./subgraphs/subgraph_104.graphql
+  subgraph_105:
+    routing_url: http://127.0.0.1:4001/subgraph/105
+    schema:
+      file: ./subgraphs/subgraph_105.graphql
+  subgraph_106:
+    routing_url: http://127.0.0.1:4001/subgraph/106
+    schema:
+      file: ./subgraphs/subgraph_106.graphql
+  subgraph_107:
+    routing_url: http://127.0.0.1:4001/subgraph/107
+    schema:
+      file: ./subgraphs/subgraph_107.graphql
+  subgraph_108:
+    routing_url: http://127.0.0.1:4001/subgraph/108
+    schema:
+      file: ./subgraphs/subgraph_108.graphql
+  subgraph_109:
+    routing_url: http://127.0.0.1:4001/subgraph/109
+    schema:
+      file: ./subgraphs/subgraph_109.graphql
+  subgraph_110:
+    routing_url: http://127.0.0.1:4001/subgraph/110
+    schema:
+      file: ./subgraphs/subgraph_110.graphql
+  subgraph_111:
+    routing_url: http://127.0.0.1:4001/subgraph/111
+    schema:
+      file: ./subgraphs/subgraph_111.graphql
+  subgraph_112:
+    routing_url: http://127.0.0.1:4001/subgraph/112
+    schema:
+      file: ./subgraphs/subgraph_112.graphql
+  subgraph_113:
+    routing_url: http://127.0.0.1:4001/subgraph/113
+    schema:
+      file: ./subgraphs/subgraph_113.graphql
+  subgraph_114:
+    routing_url: http://127.0.0.1:4001/subgraph/114
+    schema:
+      file: ./subgraphs/subgraph_114.graphql
+  subgraph_115:
+    routing_url: http://127.0.0.1:4001/subgraph/115
+    schema:
+      file: ./subgraphs/subgraph_115.graphql
+  subgraph_116:
+    routing_url: http://127.0.0.1:4001/subgraph/116
+    schema:
+      file: ./subgraphs/subgraph_116.graphql
+  subgraph_117:
+    routing_url: http://127.0.0.1:4001/subgraph/117
+    schema:
+      file: ./subgraphs/subgraph_117.graphql
+  subgraph_118:
+    routing_url: http://127.0.0.1:4001/subgraph/118
+    schema:
+      file: ./subgraphs/subgraph_118.graphql
+  subgraph_119:
+    routing_url: http://127.0.0.1:4001/subgraph/119
+    schema:
+      file: ./subgraphs/subgraph_119.graphql
+  subgraph_120:
+    routing_url: http://127.0.0.1:4001/subgraph/120
+    schema:
+      file: ./subgraphs/subgraph_120.graphql
+  subgraph_121:
+    routing_url: http://127.0.0.1:4001/subgraph/121
+    schema:
+      file: ./subgraphs/subgraph_121.graphql
+  subgraph_122:
+    routing_url: http://127.0.0.1:4001/subgraph/122
+    schema:
+      file: ./subgraphs/subgraph_122.graphql
+  subgraph_123:
+    routing_url: http://127.0.0.1:4001/subgraph/123
+    schema:
+      file: ./subgraphs/subgraph_123.graphql
+  subgraph_124:
+    routing_url: http://127.0.0.1:4001/subgraph/124
+    schema:
+      file: ./subgraphs/subgraph_124.graphql
+  subgraph_125:
+    routing_url: http://127.0.0.1:4001/subgraph/125
+    schema:
+      file: ./subgraphs/subgraph_125.graphql
+  subgraph_126:
+    routing_url: http://127.0.0.1:4001/subgraph/126
+    schema:
+      file: ./subgraphs/subgraph_126.graphql
+  subgraph_127:
+    routing_url: http://127.0.0.1:4001/subgraph/127
+    schema:
+      file: ./subgraphs/subgraph_127.graphql
+  subgraph_128:
+    routing_url: http://127.0.0.1:4001/subgraph/128
+    schema:
+      file: ./subgraphs/subgraph_128.graphql
+  subgraph_129:
+    routing_url: http://127.0.0.1:4001/subgraph/129
+    schema:
+      file: ./subgraphs/subgraph_129.graphql
+  subgraph_130:
+    routing_url: http://127.0.0.1:4001/subgraph/130
+    schema:
+      file: ./subgraphs/subgraph_130.graphql
+  subgraph_131:
+    routing_url: http://127.0.0.1:4001/subgraph/131
+    schema:
+      file: ./subgraphs/subgraph_131.graphql
+  subgraph_132:
+    routing_url: http://127.0.0.1:4001/subgraph/132
+    schema:
+      file: ./subgraphs/subgraph_132.graphql
+  subgraph_133:
+    routing_url: http://127.0.0.1:4001/subgraph/133
+    schema:
+      file: ./subgraphs/subgraph_133.graphql
+  subgraph_134:
+    routing_url: http://127.0.0.1:4001/subgraph/134
+    schema:
+      file: ./subgraphs/subgraph_134.graphql
+  subgraph_135:
+    routing_url: http://127.0.0.1:4001/subgraph/135
+    schema:
+      file: ./subgraphs/subgraph_135.graphql
+  subgraph_136:
+    routing_url: http://127.0.0.1:4001/subgraph/136
+    schema:
+      file: ./subgraphs/subgraph_136.graphql
+  subgraph_137:
+    routing_url: http://127.0.0.1:4001/subgraph/137
+    schema:
+      file: ./subgraphs/subgraph_137.graphql
+  subgraph_138:
+    routing_url: http://127.0.0.1:4001/subgraph/138
+    schema:
+      file: ./subgraphs/subgraph_138.graphql
+  subgraph_139:
+    routing_url: http://127.0.0.1:4001/subgraph/139
+    schema:
+      file: ./subgraphs/subgraph_139.graphql
+  subgraph_140:
+    routing_url: http://127.0.0.1:4001/subgraph/140
+    schema:
+      file: ./subgraphs/subgraph_140.graphql
+  subgraph_141:
+    routing_url: http://127.0.0.1:4001/subgraph/141
+    schema:
+      file: ./subgraphs/subgraph_141.graphql
+  subgraph_142:
+    routing_url: http://127.0.0.1:4001/subgraph/142
+    schema:
+      file: ./subgraphs/subgraph_142.graphql
+  subgraph_143:
+    routing_url: http://127.0.0.1:4001/subgraph/143
+    schema:
+      file: ./subgraphs/subgraph_143.graphql
+  subgraph_144:
+    routing_url: http://127.0.0.1:4001/subgraph/144
+    schema:
+      file: ./subgraphs/subgraph_144.graphql
+  subgraph_145:
+    routing_url: http://127.0.0.1:4001/subgraph/145
+    schema:
+      file: ./subgraphs/subgraph_145.graphql
+  subgraph_146:
+    routing_url: http://127.0.0.1:4001/subgraph/146
+    schema:
+      file: ./subgraphs/subgraph_146.graphql
+  subgraph_147:
+    routing_url: http://127.0.0.1:4001/subgraph/147
+    schema:
+      file: ./subgraphs/subgraph_147.graphql
+  subgraph_148:
+    routing_url: http://127.0.0.1:4001/subgraph/148
+    schema:
+      file: ./subgraphs/subgraph_148.graphql
+  subgraph_149:
+    routing_url: http://127.0.0.1:4001/subgraph/149
+    schema:
+      file: ./subgraphs/subgraph_149.graphql
+  subgraph_150:
+    routing_url: http://127.0.0.1:4001/subgraph/150
+    schema:
+      file: ./subgraphs/subgraph_150.graphql
+  subgraph_151:
+    routing_url: http://127.0.0.1:4001/subgraph/151
+    schema:
+      file: ./subgraphs/subgraph_151.graphql
+  subgraph_152:
+    routing_url: http://127.0.0.1:4001/subgraph/152
+    schema:
+      file: ./subgraphs/subgraph_152.graphql
+  subgraph_153:
+    routing_url: http://127.0.0.1:4001/subgraph/153
+    schema:
+      file: ./subgraphs/subgraph_153.graphql
+  subgraph_154:
+    routing_url: http://127.0.0.1:4001/subgraph/154
+    schema:
+      file: ./subgraphs/subgraph_154.graphql
+  subgraph_155:
+    routing_url: http://127.0.0.1:4001/subgraph/155
+    schema:
+      file: ./subgraphs/subgraph_155.graphql
+  subgraph_156:
+    routing_url: http://127.0.0.1:4001/subgraph/156
+    schema:
+      file: ./subgraphs/subgraph_156.graphql
+  subgraph_157:
+    routing_url: http://127.0.0.1:4001/subgraph/157
+    schema:
+      file: ./subgraphs/subgraph_157.graphql
+  subgraph_158:
+    routing_url: http://127.0.0.1:4001/subgraph/158
+    schema:
+      file: ./subgraphs/subgraph_158.graphql
+  subgraph_159:
+    routing_url: http://127.0.0.1:4001/subgraph/159
+    schema:
+      file: ./subgraphs/subgraph_159.graphql
+  subgraph_160:
+    routing_url: http://127.0.0.1:4001/subgraph/160
+    schema:
+      file: ./subgraphs/subgraph_160.graphql
+  subgraph_161:
+    routing_url: http://127.0.0.1:4001/subgraph/161
+    schema:
+      file: ./subgraphs/subgraph_161.graphql
+  subgraph_162:
+    routing_url: http://127.0.0.1:4001/subgraph/162
+    schema:
+      file: ./subgraphs/subgraph_162.graphql
+  subgraph_163:
+    routing_url: http://127.0.0.1:4001/subgraph/163
+    schema:
+      file: ./subgraphs/subgraph_163.graphql
+  subgraph_164:
+    routing_url: http://127.0.0.1:4001/subgraph/164
+    schema:
+      file: ./subgraphs/subgraph_164.graphql
+  subgraph_165:
+    routing_url: http://127.0.0.1:4001/subgraph/165
+    schema:
+      file: ./subgraphs/subgraph_165.graphql
+  subgraph_166:
+    routing_url: http://127.0.0.1:4001/subgraph/166
+    schema:
+      file: ./subgraphs/subgraph_166.graphql
+  subgraph_167:
+    routing_url: http://127.0.0.1:4001/subgraph/167
+    schema:
+      file: ./subgraphs/subgraph_167.graphql
+  subgraph_168:
+    routing_url: http://127.0.0.1:4001/subgraph/168
+    schema:
+      file: ./subgraphs/subgraph_168.graphql
+  subgraph_169:
+    routing_url: http://127.0.0.1:4001/subgraph/169
+    schema:
+      file: ./subgraphs/subgraph_169.graphql
+  subgraph_170:
+    routing_url: http://127.0.0.1:4001/subgraph/170
+    schema:
+      file: ./subgraphs/subgraph_170.graphql
+  subgraph_171:
+    routing_url: http://127.0.0.1:4001/subgraph/171
+    schema:
+      file: ./subgraphs/subgraph_171.graphql
+  subgraph_172:
+    routing_url: http://127.0.0.1:4001/subgraph/172
+    schema:
+      file: ./subgraphs/subgraph_172.graphql
+  subgraph_173:
+    routing_url: http://127.0.0.1:4001/subgraph/173
+    schema:
+      file: ./subgraphs/subgraph_173.graphql
+  subgraph_174:
+    routing_url: http://127.0.0.1:4001/subgraph/174
+    schema:
+      file: ./subgraphs/subgraph_174.graphql
+  subgraph_175:
+    routing_url: http://127.0.0.1:4001/subgraph/175
+    schema:
+      file: ./subgraphs/subgraph_175.graphql
+  subgraph_176:
+    routing_url: http://127.0.0.1:4001/subgraph/176
+    schema:
+      file: ./subgraphs/subgraph_176.graphql
+  subgraph_177:
+    routing_url: http://127.0.0.1:4001/subgraph/177
+    schema:
+      file: ./subgraphs/subgraph_177.graphql
+  subgraph_178:
+    routing_url: http://127.0.0.1:4001/subgraph/178
+    schema:
+      file: ./subgraphs/subgraph_178.graphql
+  subgraph_179:
+    routing_url: http://127.0.0.1:4001/subgraph/179
+    schema:
+      file: ./subgraphs/subgraph_179.graphql
+  subgraph_180:
+    routing_url: http://127.0.0.1:4001/subgraph/180
+    schema:
+      file: ./subgraphs/subgraph_180.graphql
+  subgraph_181:
+    routing_url: http://127.0.0.1:4001/subgraph/181
+    schema:
+      file: ./subgraphs/subgraph_181.graphql
+  subgraph_182:
+    routing_url: http://127.0.0.1:4001/subgraph/182
+    schema:
+      file: ./subgraphs/subgraph_182.graphql
+  subgraph_183:
+    routing_url: http://127.0.0.1:4001/subgraph/183
+    schema:
+      file: ./subgraphs/subgraph_183.graphql
+  subgraph_184:
+    routing_url: http://127.0.0.1:4001/subgraph/184
+    schema:
+      file: ./subgraphs/subgraph_184.graphql
+  subgraph_185:
+    routing_url: http://127.0.0.1:4001/subgraph/185
+    schema:
+      file: ./subgraphs/subgraph_185.graphql
+  subgraph_186:
+    routing_url: http://127.0.0.1:4001/subgraph/186
+    schema:
+      file: ./subgraphs/subgraph_186.graphql
+  subgraph_187:
+    routing_url: http://127.0.0.1:4001/subgraph/187
+    schema:
+      file: ./subgraphs/subgraph_187.graphql
+  subgraph_188:
+    routing_url: http://127.0.0.1:4001/subgraph/188
+    schema:
+      file: ./subgraphs/subgraph_188.graphql
+  subgraph_189:
+    routing_url: http://127.0.0.1:4001/subgraph/189
+    schema:
+      file: ./subgraphs/subgraph_189.graphql
+  subgraph_190:
+    routing_url: http://127.0.0.1:4001/subgraph/190
+    schema:
+      file: ./subgraphs/subgraph_190.graphql
+  subgraph_191:
+    routing_url: http://127.0.0.1:4001/subgraph/191
+    schema:
+      file: ./subgraphs/subgraph_191.graphql
+  subgraph_192:
+    routing_url: http://127.0.0.1:4001/subgraph/192
+    schema:
+      file: ./subgraphs/subgraph_192.graphql
+  subgraph_193:
+    routing_url: http://127.0.0.1:4001/subgraph/193
+    schema:
+      file: ./subgraphs/subgraph_193.graphql
+  subgraph_194:
+    routing_url: http://127.0.0.1:4001/subgraph/194
+    schema:
+      file: ./subgraphs/subgraph_194.graphql
+  subgraph_195:
+    routing_url: http://127.0.0.1:4001/subgraph/195
+    schema:
+      file: ./subgraphs/subgraph_195.graphql
+  subgraph_196:
+    routing_url: http://127.0.0.1:4001/subgraph/196
+    schema:
+      file: ./subgraphs/subgraph_196.graphql
+  subgraph_197:
+    routing_url: http://127.0.0.1:4001/subgraph/197
+    schema:
+      file: ./subgraphs/subgraph_197.graphql
+  subgraph_198:
+    routing_url: http://127.0.0.1:4001/subgraph/198
+    schema:
+      file: ./subgraphs/subgraph_198.graphql
+  subgraph_199:
+    routing_url: http://127.0.0.1:4001/subgraph/199
+    schema:
+      file: ./subgraphs/subgraph_199.graphql
+  subgraph_200:
+    routing_url: http://127.0.0.1:4001/subgraph/200
+    schema:
+      file: ./subgraphs/subgraph_200.graphql

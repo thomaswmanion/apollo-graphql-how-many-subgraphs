@@ -1,0 +1,22 @@
+federation_version: =2.11.0
+subgraphs:
+  subgraph_1:
+    routing_url: http://127.0.0.1:4001/subgraph/1
+    schema:
+      file: ./subgraphs/subgraph_1.graphql
+  subgraph_2:
+    routing_url: http://127.0.0.1:4001/subgraph/2
+    schema:
+      file: ./subgraphs/subgraph_2.graphql
+  subgraph_3:
+    routing_url: http://127.0.0.1:4001/subgraph/3
+    schema:
+      file: ./subgraphs/subgraph_3.graphql
+  subgraph_4:
+    routing_url: http://127.0.0.1:4001/subgraph/4
+    schema:
+      file: ./subgraphs/subgraph_4.graphql
+  subgraph_5:
+    routing_url: http://127.0.0.1:4001/subgraph/5
+    schema:
+      file: ./subgraphs/subgraph_5.graphql
