@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 480" width="850" height="480">
+<rect width="100%" height="100%" fill="#0d1117" rx="12"/>
+<text x="425" y="32" fill="#f0f6fc" font-size="18" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">Fan-Out Latency & Cold Query Plan Explosion (Log-Log Scale)</text>
+<line x1="75" y1="420" x2="650" y2="420" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="424" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="end">1ms</text>
+<line x1="75" y1="333.7949873055684" x2="650" y2="333.7949873055684" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="337.7949873055684" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="end">10ms</text>
+<line x1="75" y1="247.58997461113674" x2="650" y2="247.58997461113674" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="251.58997461113674" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="end">100ms</text>
+<line x1="75" y1="161.3849619167051" x2="650" y2="161.3849619167051" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="165.3849619167051" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="end">1s</text>
+<line x1="75" y1="75.17994922227348" x2="650" y2="75.17994922227348" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="79.17994922227348" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="end">10s</text>
+<line x1="75" y1="60" x2="75" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="75" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=1</text>
+<line x1="141.52123628343077" y1="60" x2="141.52123628343077" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="141.52123628343077" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=2</text>
+<line x1="229.4575274331385" y1="60" x2="229.4575274331385" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="229.4575274331385" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=5</text>
+<line x1="295.97876371656923" y1="60" x2="295.97876371656923" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="295.97876371656923" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=10</text>
+<line x1="383.915054866277" y1="60" x2="383.915054866277" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="383.915054866277" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=25</text>
+<line x1="450.4362911497077" y1="60" x2="450.4362911497077" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="450.4362911497077" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=50</text>
+<line x1="516.9575274331385" y1="60" x2="516.9575274331385" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="516.9575274331385" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=100</text>
+<line x1="583.4787637165692" y1="60" x2="583.4787637165692" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="583.4787637165692" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=200</text>
+<line x1="650" y1="60" x2="650" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="650" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=400</text>
+<polyline fill="none" stroke="#ff7b72" stroke-width="3.5"  points="75,360.50163815949503 295.97876371656923,323.40091003535053 450.4362911497077,277.98733014867867 516.9575274331385,251.4513956109612 583.4787637165692,194.8929915292878 650,75.64936175569738" />
+<circle cx="75" cy="360.50163815949503" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="295.97876371656923" cy="323.40091003535053" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="450.4362911497077" cy="277.98733014867867" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="516.9575274331385" cy="251.4513956109612" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="583.4787637165692" cy="194.8929915292878" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="650" cy="75.64936175569738" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<polyline fill="none" stroke="#56d364" stroke-width="2.5"  points="75,390.4814484528604 295.97876371656923,314.5957110830319 450.4362911497077,260.67683370804605 516.9575274331385,256.13176486466324 583.4787637165692,235.50457676958678 650,214.81385969282212" />
+<circle cx="75" cy="390.4814484528604" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<circle cx="295.97876371656923" cy="314.5957110830319" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<circle cx="450.4362911497077" cy="260.67683370804605" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<circle cx="516.9575274331385" cy="256.13176486466324" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<circle cx="583.4787637165692" cy="235.50457676958678" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<circle cx="650" cy="214.81385969282212" r="4" fill="#56d364" stroke="#0d1117" stroke-width="2"/>
+<polyline fill="none" stroke="#e3b341" stroke-width="2.5"  points="75,382.81428123475666 295.97876371656923,345.06786856618857 450.4362911497077,277.4016902085794 516.9575274331385,266.09561890914927 583.4787637165692,244.02171766161533 650,224.5584323725617" />
+<circle cx="75" cy="382.81428123475666" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<circle cx="295.97876371656923" cy="345.06786856618857" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<circle cx="450.4362911497077" cy="277.4016902085794" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<circle cx="516.9575274331385" cy="266.09561890914927" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<circle cx="583.4787637165692" cy="244.02171766161533" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<circle cx="650" cy="224.5584323725617" r="4" fill="#e3b341" stroke="#0d1117" stroke-width="2"/>
+<polyline fill="none" stroke="#a371f7" stroke-width="2.5"  points="75,400.13414780716784 295.97876371656923,366.2727870094535 450.4362911497077,329.55214703649057 516.9575274331385,303.2690648136613 583.4787637165692,283.814734999193 650,267.6623061313463" />
+<circle cx="75" cy="400.13414780716784" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="295.97876371656923" cy="366.2727870094535" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="450.4362911497077" cy="329.55214703649057" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="516.9575274331385" cy="303.2690648136613" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="583.4787637165692" cy="283.814734999193" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<circle cx="650" cy="267.6623061313463" r="4" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+<polyline fill="none" stroke="#58a6ff" stroke-width="2.5" stroke-dasharray="5,3" points="75,394.0497054023818 295.97876371656923,395.97004229124286 450.4362911497077,397.99423045703014 516.9575274331385,397.99423045703014 583.4787637165692,397.99423045703014 650,395.97004229124286" />
+<circle cx="75" cy="394.0497054023818" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="295.97876371656923" cy="395.97004229124286" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="450.4362911497077" cy="397.99423045703014" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="516.9575274331385" cy="397.99423045703014" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="583.4787637165692" cy="397.99423045703014" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="650" cy="395.97004229124286" r="4" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<line x1="668" y1="80" x2="692" y2="80" stroke="#ff7b72" stroke-width="3" />
+<circle cx="680" cy="80" r="4" fill="#ff7b72"/>
+<text x="700" y="84" fill="#c9d1d9" font-size="12" font-family="sans-serif">Cold Plan Time (Router)</text>
+<line x1="668" y1="108" x2="692" y2="108" stroke="#56d364" stroke-width="3" />
+<circle cx="680" cy="108" r="4" fill="#56d364"/>
+<text x="700" y="112" fill="#c9d1d9" font-size="12" font-family="sans-serif">Node.js p50 Latency</text>
+<line x1="668" y1="136" x2="692" y2="136" stroke="#e3b341" stroke-width="3" />
+<circle cx="680" cy="136" r="4" fill="#e3b341"/>
+<text x="700" y="140" fill="#c9d1d9" font-size="12" font-family="sans-serif">Bun 1.4 p50 Latency</text>
+<line x1="668" y1="164" x2="692" y2="164" stroke="#a371f7" stroke-width="3" />
+<circle cx="680" cy="164" r="4" fill="#a371f7"/>
+<text x="700" y="168" fill="#c9d1d9" font-size="12" font-family="sans-serif">Rust Axum p50 Latency</text>
+<line x1="668" y1="192" x2="692" y2="192" stroke="#58a6ff" stroke-width="3" stroke-dasharray="4,3"/>
+<circle cx="680" cy="192" r="4" fill="#58a6ff"/>
+<text x="700" y="196" fill="#c9d1d9" font-size="12" font-family="sans-serif">Monograph p50 (~1.8ms)</text>
+<text x="640" y="65.64936175569738" fill="#ff7b72" font-size="12" font-weight="700" font-family="sans-serif" text-anchor="end">Cold Plan: 9.88s!</text>
+<line x1="642" y1="69.64936175569738" x2="650" y2="75.64936175569738" stroke="#ff7b72" stroke-width="2"/>
+</svg>

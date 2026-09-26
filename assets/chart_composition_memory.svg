@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 480" width="850" height="480">
+<rect width="100%" height="100%" fill="#0d1117" rx="12"/>
+<text x="425" y="32" fill="#f0f6fc" font-size="18" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">Rover Composition Time & Apollo Router Memory Growth</text>
+<line x1="75" y1="420" x2="670" y2="420" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="424" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">0s</text>
+<line x1="75" y1="348" x2="670" y2="348" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="352" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">5s</text>
+<line x1="75" y1="276" x2="670" y2="276" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="280" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">10s</text>
+<line x1="75" y1="204" x2="670" y2="204" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="208" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">15s</text>
+<line x1="75" y1="132" x2="670" y2="132" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="136" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">20s</text>
+<line x1="75" y1="60" x2="670" y2="60" stroke="#21262d" stroke-dasharray="3,3" />
+<text x="65" y="64" fill="#ff7b72" font-size="12" font-family="sans-serif" text-anchor="end">25s</text>
+<text x="682" y="424" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">0 MB</text>
+<text x="682" y="364" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">150 MB</text>
+<text x="682" y="304" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">300 MB</text>
+<text x="682" y="244" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">450 MB</text>
+<text x="682" y="184" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">600 MB</text>
+<text x="682" y="124" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">750 MB</text>
+<text x="682" y="64" fill="#79c0ff" font-size="12" font-family="sans-serif" text-anchor="start">900 MB</text>
+<line x1="75" y1="60" x2="75" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="75" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=0</text>
+<line x1="149.375" y1="60" x2="149.375" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="149.375" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=50</text>
+<line x1="223.75" y1="60" x2="223.75" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="223.75" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=100</text>
+<line x1="298.125" y1="60" x2="298.125" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="298.125" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=150</text>
+<line x1="372.5" y1="60" x2="372.5" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="372.5" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=200</text>
+<line x1="446.875" y1="60" x2="446.875" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="446.875" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=250</text>
+<line x1="521.25" y1="60" x2="521.25" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="521.25" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=300</text>
+<line x1="595.625" y1="60" x2="595.625" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="595.625" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=350</text>
+<line x1="670" y1="60" x2="670" y2="420" stroke="#21262d" stroke-dasharray="2,2" />
+<text x="670" y="440" fill="#8b949e" font-size="12" font-family="sans-serif" text-anchor="middle">N=400</text>
+<polyline fill="none" stroke="#ff7b72" stroke-width="3.5" points="76.4875,408.7824 89.875,412.35360000000003 149.375,408.3648 223.75,399.4656 298.125,387.0384 372.5,364.8048 446.875,302.6256 521.25,247.7904 670,84.4368" />
+<circle cx="76.4875" cy="408.7824" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="89.875" cy="412.35360000000003" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="149.375" cy="408.3648" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="223.75" cy="399.4656" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="298.125" cy="387.0384" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="372.5" cy="364.8048" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="446.875" cy="302.6256" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="521.25" cy="247.7904" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<circle cx="670" cy="84.4368" r="4" fill="#ff7b72" stroke="#0d1117" stroke-width="2"/>
+<polyline fill="none" stroke="#79c0ff" stroke-width="3" stroke-dasharray="5,4" points="76.4875,403.16 89.875,402 149.375,396.64 223.75,389.4 298.125,375.48 372.5,354.28 446.875,321.92 521.25,268 670,104.07999999999998" />
+<circle cx="76.4875" cy="403.16" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="89.875" cy="402" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="149.375" cy="396.64" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="223.75" cy="389.4" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="298.125" cy="375.48" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="372.5" cy="354.28" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="446.875" cy="321.92" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="521.25" cy="268" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<circle cx="670" cy="104.07999999999998" r="4" fill="#79c0ff" stroke="#0d1117" stroke-width="2"/>
+<rect x="85" y="70" width="250" height="70" fill="#161b22" stroke="#30363d" rx="6"/>
+<line x1="95" y1="85" x2="119" y2="85" stroke="#ff7b72" stroke-width="3"/>
+<circle cx="107" cy="85" r="4" fill="#ff7b72"/>
+<text x="127" y="89" fill="#ff7b72" font-size="12" font-weight="700" font-family="sans-serif">Rover Compose Time (Left Axis)</text>
+<line x1="95" y1="113" x2="119" y2="113" stroke="#79c0ff" stroke-width="3" stroke-dasharray="5,4"/>
+<circle cx="107" cy="113" r="4" fill="#79c0ff"/>
+<text x="127" y="117" fill="#79c0ff" font-size="12" font-weight="700" font-family="sans-serif">Router Memory Footprint (Right Axis)</text>
+</svg>

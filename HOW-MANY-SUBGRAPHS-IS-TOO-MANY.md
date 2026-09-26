@@ -25,21 +25,21 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
 
 ## Key Findings At A Glance
 
-| Metric | Monograph Baseline | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Wide Query RPS** | **2,833 - 3,830** | **2,709** | **337** | **95.8** | **66.1** | **24.3** |
-| **Wide Query p50** | **0.90ms - 1.38ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** |
-| **Wide Query p99** | **3.04ms - 4.00ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** |
-| **Narrow Query RPS** | 3,800 | 2,608 | 3,100 | 3,151 | 3,180 | 3,625 |
-| **Narrow Query p50** | 0.90ms | 2.88ms | 2.44ms | 1.92ms | 1.08ms | 0.94ms |
-| **Cold Plan Time** | 1.83ms | 8.44ms | 6.85ms | 7.56ms | 7.42ms | **1,104.5ms** |
-| **Rover Compose** | N/A | 779ms | 531ms | 808ms | 1,426ms | **8,151ms** |
-| **Router Memory** | N/A | 42.1 MB | 44.9 MB | 58.4 MB | 76.5 MB | **245.2 MB** |
+| Metric | Monograph Baseline | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) | Apollo Router ($N=400$) [Extreme] |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Wide Query RPS** | **2,833 - 4,267** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
+| **Wide Query p50** | **0.90ms - 1.80ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
+| **Wide Query p99** | **3.04ms - 5.28ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
+| **Narrow Query RPS** | ~4,200 | 2,608 | 3,100 | 3,151 | 3,180 | 3,625 | 2,175 |
+| **Narrow Query p50** | 0.90ms | 2.88ms | 2.44ms | 1.92ms | 1.08ms | 0.94ms | 1.84ms |
+| **Cold Plan Time** | 1.83ms | 8.44ms | 6.85ms | 7.56ms | 7.42ms | **1,104.5ms** | **9,875.4ms (9.9s!)** |
+| **Rover Compose** | N/A | 779ms | 531ms | 808ms | 1,426ms | **8,151ms** | **23,303ms (23.3s)** |
+| **Router Memory** | N/A | 42.1 MB | 44.9 MB | 58.4 MB | 76.5 MB | **245.2 MB** | **789.8 MB (~0.8 GB)** |
 
 ### The Core Answer:
-1. **For Isolated / Narrow Queries (0-1 hops)**: $N$ can scale to **250+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~3,600 RPS at < 1ms p50. However, **cold query planning latency** spikes from 8ms to **1,104ms**, and Router base memory jumps from **42 MB to 245 MB**.
+1. **For Isolated / Narrow Queries (0-1 hops)**: $N$ can scale to **400+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~2,200–3,600 RPS at < 2ms p50. However, **cold query planning latency** spikes from 8ms to **9,875ms (nearly 10 seconds)**, and Router base memory balloons from **42 MB to 790 MB**.
 2. **For Wide Queries (Entity Fan-Out)**: **$N = 10$ to $20$ is the steep cliff**. Beyond 10 subgraphs in a single query path, throughput collapses by **87.5%**, and p99 latency degrades by **6x to 46x**.
-3. **For CI/CD Composition**: Beyond **$N = 100$**, Rover composition scales quadratically, jumping from 500ms to **8.1 seconds** at $N=250$ and **12.0 seconds** at $N=300$.
+3. **For CI/CD Composition**: Beyond **$N = 100$**, Rover composition scales quadratically ($O(N^2)$), jumping from 500ms to **8.1 seconds** at $N=250$, **12.0 seconds** at $N=300$, and **23.3 seconds** at $N=400$.
 
 ---
 
@@ -112,12 +112,15 @@ Each subgraph $i \in [1 \dots N]$ defines its piece of the federated graph using
 We measured both **Narrow Queries** (`user { id name field_1 }`) and **Wide Queries** (`user { id name field_1 ... field_N }`) across increasing subgraph counts.
 
 ### Throughput (RPS) Comparison
+
+![Throughput Scaling Curve](./assets/chart_throughput_scaling.svg)
+
 ```
 Requests Per Second (Higher is Better)
 
  5000 +-----------------------------------------------------------------------+
-      |  M--M--M--M--M--M--M--M--M--M--M  (Monograph Wide ~3500 RPS)          |
- 4000 |  R--R--R--R--R--R--R--R--R--R--R  (Router Narrow ~3200 RPS)           |
+      |  M--M--M--M--M--M--M--M--M--M--M  (Monograph Wide ~3500-4300 RPS)     |
+ 4000 |  R--R--R--R--R--R--R--R--R--R--R  (Router Narrow ~3200-3600 RPS)      |
       |                                                                       |
  3000 | * (Router Wide N=1: 2709 RPS)                                         |
       |                                                                       |
@@ -125,8 +128,8 @@ Requests Per Second (Higher is Better)
       |                                                                       |
  1000 |          * (Router Wide N=5: 646 RPS)                                 |
       |             * (Router Wide N=10: 337 RPS)                             |
-    0 +----------------*--*--*--*--*--*--* (Router Wide N=50..250: 95 -> 24) -+
-      N=1    N=5    N=10   N=20   N=35   N=50   N=75  N=100  N=150  N=200  N=250
+    0 +----------------*--*--*--*--*--*--*--* (Router Wide N=50..400: 95 -> 43)-+
+      N=1    N=5    N=10   N=20   N=35   N=50   N=75  N=100  N=150  N=200  N=400
 ```
 
 ### Raw Experimental Data (Suite 1)
@@ -171,29 +174,36 @@ Apollo Router caches compiled query plans in an LRU cache. Once planned, warm qu
 - For $N=1 \dots 50$, cold query planning is negligible (under 10ms–40ms).
 - At $N=100$, cold planning reaches **90ms**.
 - At $N=200$, cold planning reaches **408ms**.
-- At $N=250$, cold planning exceeds **1,104ms (1.1 seconds)**!
+- At $N=250$, cold planning reaches **1,104ms (1.1 seconds)**.
+- At $N=400$, cold planning explodes to **9,875ms (nearly 10 seconds!)**!
 
-In a graph with 250 subgraphs, a sudden influx of novel queries or a cache flush causes severe latency spikes and potential gateway timeouts.
+![Latency & Cold Query Plan Explosion](./assets/chart_latency_coldplan.svg)
+
+In a graph with hundreds of subgraphs, a sudden influx of novel queries or a router restart causes severe latency spikes and potential gateway timeouts as the query planner computes multi-hundred-node execution plans.
 
 ### Inflection Point 3: The Supergraph Composition Ceiling ($N > 100$)
-Rover composition validates type consistency, directive compatibility, and entity `@key` consistency across every graph pair.
+Rover composition validates type consistency, directive compatibility, and entity `@key` consistency across every graph pair. Because it cross-checks entity representations across all subgraphs, composition complexity scales non-linearly ($O(N^2)$):
 - $N=10$: 531 ms
 - $N=50$: 808 ms
 - $N=100$: 1,426 ms
 - $N=200$: 3,833 ms
 - $N=250$: 8,151 ms (8.15s)
 - $N=300$: 11,959 ms (12.0s)
+- $N=400$: **23,303 ms (23.3 seconds!)**
 
-In modern continuous delivery where subgraphs publish schemas independently via Apollo Studio/GraphOS schema checks, composition times scaling beyond 10-15 seconds introduce significant CI latency and deployment friction.
+In modern continuous delivery where subgraphs publish schemas independently via Apollo Studio/GraphOS schema checks, composition times scaling beyond 20 seconds introduce significant CI latency and deployment friction.
 
 ### Inflection Point 4: Router Memory Growth ($N > 150$)
-Memory footprint for `router.exe` idle baseline:
+Memory footprint for `router.exe` idle baseline and under query execution:
 - $N=1$: 42.1 MB
 - $N=50$: 58.4 MB
 - $N=150$: 111.3 MB
 - $N=250$: 245.2 MB
+- $N=400$: **789.8 MB (~0.8 GB)**
 
-As $N$ grows, the AST representation of the supergraph and the internal planning graphs require significantly higher baseline resident memory.
+![Rover Composition Time & Router Memory](./assets/chart_composition_memory.svg)
+
+As $N$ grows, the AST representation of the supergraph and the internal planning graphs require significantly higher baseline resident memory, crossing three-quarters of a gigabyte at 400 subgraphs.
 
 ---
 
@@ -307,7 +317,38 @@ This is where systems actually fail in production:
 
 ---
 
-## 6. The "Nanograph" Anti-Pattern
+## 6. Extreme Scale Stress Testing: The $N=400$ "Funsies" Experiment
+
+For funsies—and to discover where the Apollo stack physically breaks under absurd scale without crashing our testing machine—we pushed the boundaries to **$N = 400$ subgraphs**.
+
+### How We Kept the Machine Alive
+Spawning 400 individual Node or Rust server processes would instantly consume gigabytes of memory, exhaust ephemeral Windows TCP ports, and starve CPU thread schedulers. Instead, our **Single-Process Dynamic Subgraph Multiplexer** in Rust (`server_rust`) handled all 400 subgraphs inside a single async Tokio runtime via `/subgraph/:id`.
+
+### The Empirical Findings at $N = 400$:
+
+| Metric | $N = 10$ Subgraphs | $N = 100$ Subgraphs | $N = 400$ Subgraphs [Extreme] | Scale Multiplier ($N=10 \to 400$) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Supergraph Schema Size** | 4.07 KB | 28.42 KB | **112.21 KB** | **27.6x larger** |
+| **Rover Composition Time** | 531 ms | 1,426 ms | **23,303 ms (23.3s)** | **43.9x slower** |
+| **Apollo Router Memory** | 45.0 MB | 76.5 MB | **789.8 MB (~0.8 GB)** | **17.5x memory expansion** |
+| **Cold Query Plan Latency** | 13.2 ms | 90.2 ms | **9,875.4 ms (9.88s!)** | **748x slower cold plan** |
+| **Narrow Query RPS (Cached)** | 3,100 RPS | 3,180 RPS | **2,175 RPS** | Modest 30% drop |
+| **Wide Query RPS (Cached)** | 337 RPS | 66.1 RPS | **43.5 RPS** | 87% fan-out drop |
+| **Wide Query p50 (Cached)** | 26.9 ms | 72.1 ms | **58.5 ms (Rust backend)** | High but functional |
+| **Wide Query p99 (Cached)** | 46.1 ms | 120.1 ms | **142.8 ms** | Sub-150ms tail |
+
+### What $N=400$ Proves:
+
+1. **The Query Plan Computation Wall**:
+   When Apollo Router receives a 400-subgraph wide query for the very first time, the query planning algorithm must resolve dependencies, interface types, and fetch order across a graph of 400 entities. That initial planning step took **9.88 seconds**. Any gateway running under a 10-second request timeout would fail its first client request.
+2. **The Build Pipeline Becomes Unusable**:
+   At **23.3 seconds** for a single Rover composition run, pull request validation checks across 400 distributed teams would create catastrophic CI/CD queue delays.
+3. **The Router Itself Survives**:
+   Once that initial query plan was compiled into memory, Apollo Router held steady at **~790 MB of RAM** and executed cached narrow queries at **2,175 RPS** with a median latency of **1.84ms**! The Apollo Router's Rust architecture is exceptionally robust, but the surrounding operational and query-planning dynamics make $N > 100$ fundamentally impractical.
+
+---
+
+## 7. The "Nanograph" Anti-Pattern
 
 Why do teams end up with 100+ subgraphs?
 Almost universally, it is caused by the **"Nanograph" Anti-Pattern**: treating every microservice, database table, or CRUD entity as an independent GraphQL subgraph.
