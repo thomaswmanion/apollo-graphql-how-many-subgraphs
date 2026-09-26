@@ -45,16 +45,18 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
 
 ### The Benchmark Comparison Matrix
 
-| Metric | Monograph Baseline | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) | Apollo Router ($N=400$) [Extreme] |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Wide Query RPS** (Throughput) | **2,833 - 4,267** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
-| **Wide Query p50** (Typical Latency) | **0.90ms - 1.80ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
-| **Wide Query p99** (Worst 1% Latency) | **3.04ms - 5.28ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
-| **Narrow Query RPS** (1 Subgraph Hit) | ~4,200 | 2,608 | 3,100 | 3,151 | 3,180 | 3,625 | 2,175 |
-| **Narrow Query p50** (1 Subgraph Hit) | 0.90ms | 2.88ms | 2.44ms | 1.92ms | 1.08ms | 0.94ms | 1.84ms |
-| **Cold Plan Time** (First-time query) | 1.83ms | 8.44ms | 6.85ms | 7.56ms | 7.42ms | **1,104.5ms** | **9,875.4ms (9.9s!)** |
-| **Rover Compose** (CI/CD Build Time) | Instant | 779ms | 531ms | 808ms | 1,426ms | **8,151ms** | **23,303ms (23.3s)** |
-| **Router Memory** (RAM Footprint) | N/A | 42.1 MB | 44.9 MB | 58.4 MB | 76.5 MB | **245.2 MB** | **789.8 MB (~0.8 GB)** |
+| Metric | Monograph Baseline ($N=1$) | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) | Apollo Router ($N=400$) [Extreme] |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Wide Query RPS** (Throughput) | **3,076** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
+| **Wide Query p50** (Typical Latency) | **2.67ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
+| **Wide Query p99** (Worst 1% Latency) | **7.20ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
+| **Narrow Query RPS** (1 Subgraph Hit) | **3,014** | **2,608** | **3,100** | **3,151** | **3,180** | **3,625** | **2,175** |
+| **Narrow Query p50** (1 Subgraph Hit) | **2.69ms** | **2.88ms** | **2.44ms** | **1.92ms** | **1.08ms** | **0.94ms** | **1.84ms** |
+| **Cold Plan Time** (First-time query) | **1.83ms** | **8.44ms** | **6.85ms** | **7.56ms** | **7.42ms** | **1,104.5ms** | **9,875.4ms (9.9s!)** |
+| **Rover Compose** (CI/CD Build Time) | **Instant** | **779ms** | **531ms** | **808ms** | **1,426ms** | **8,151ms** | **23,303ms (23.3s)** |
+| **Router Memory** (RAM Footprint) | **N/A** | **42.1 MB** | **44.9 MB** | **58.4 MB** | **76.5 MB** | **245.2 MB** | **789.8 MB (~0.8 GB)** |
+
+> **Why the Monograph Baseline is so consistent:** Unlike Apollo Router, which collapses from 2,709 RPS down to 24.3 RPS as queries fan out across more subgraphs, the Monograph has **zero network hops**—resolving 1 field or 250 fields in-memory stays rock-solid between **2,800 and 3,800 RPS** (and up to **4,300 RPS** in Rust).
 
 ### The Core Answer:
 1. **For Narrow Queries (hitting 1 subgraph)**: $N$ can scale to **400+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~2,200–3,600 RPS at < 2ms p50. However, **cold query planning latency** spikes from 8ms to **9,875ms (nearly 10 seconds)**, and Router base memory balloons from **42 MB to 790 MB**.
