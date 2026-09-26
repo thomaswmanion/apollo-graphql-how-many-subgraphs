@@ -43,12 +43,15 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
 
 ---
 
-### The Benchmark Comparison Matrix
+### The Benchmark Comparison Matrix (Scale Progression)
 
-| Metric | Monograph Baseline ($N=1$) | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) | Apollo Router ($N=400$) [Extreme] |
+> **Runtimes Tested:** The primary scaling progression ($N=1 \to 250$) uses **Node.js v24 (TypeScript/JavaScript)** subgraphs, representing the most common production Apollo deployment. $N=400$ uses **Rust (Axum)** for extreme scale stress testing.
+
+| Metric | Monograph (Node.js) | Router (Node, $N=1$) | Router (Node, $N=10$) | Router (Node, $N=50$) | Router (Node, $N=100$) | Router (Node, $N=250$) | Router (Rust, $N=400$) [Extreme] |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Wide Query RPS** (Throughput) | **3,076** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
-| **Wide Query p50** (Typical Latency) | **2.67ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
+| **Backend Runtime** | **Node.js v24** | **Node.js v24** | **Node.js v24** | **Node.js v24** | **Node.js v24** | **Node.js v24** | **Native Rust (Axum)** |
+| **Wide Query RPS** (Throughput) | **3,076** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5** |
+| **Wide Query p50** (Typical Latency) | **2.67ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms** |
 | **Wide Query p99** (Worst 1% Latency) | **7.20ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
 | **Narrow Query RPS** (1 Subgraph Hit) | **3,014** | **2,608** | **3,100** | **3,151** | **3,180** | **3,625** | **2,175** |
 | **Narrow Query p50** (1 Subgraph Hit) | **2.69ms** | **2.88ms** | **2.44ms** | **1.92ms** | **1.08ms** | **0.94ms** | **1.84ms** |
@@ -56,7 +59,22 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
 | **Rover Compose** (CI/CD Build Time) | **Instant** | **779ms** | **531ms** | **808ms** | **1,426ms** | **8,151ms** | **23,303ms (23.3s)** |
 | **Router Memory** (RAM Footprint) | **N/A** | **42.1 MB** | **44.9 MB** | **58.4 MB** | **76.5 MB** | **245.2 MB** | **789.8 MB (~0.8 GB)** |
 
-> **Why the Monograph Baseline is so consistent:** Unlike Apollo Router, which collapses from 2,709 RPS down to 24.3 RPS as queries fan out across more subgraphs, the Monograph has **zero network hops**—resolving 1 field or 250 fields in-memory stays rock-solid between **2,800 and 3,800 RPS** (and up to **4,300 RPS** in Rust).
+---
+
+### How Do Node.js, Bun 1.4, and Rust Compare? (Runtime Shootout)
+
+When comparing the three runtimes directly under identical queries:
+
+| Configuration | Metric | Node.js v24 | Bun v1.4.2 (Rust Core) | Native Rust (Axum/Tokio) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Monograph Direct** ($N=100$, No Router) | Throughput (RPS) | 2,245 RPS | **4,160 RPS** | **4,235 RPS** |
+| | Median Latency (p50) | 3.77 ms | **1.70 ms** | **1.80 ms** |
+| **Through Router** ($N=10$ Fan-out) | Throughput (RPS) | 551 RPS | **1,226 RPS** *(2.2x faster)* | **1,777 RPS** *(3.2x faster)* |
+| | Median Latency (p50) | 16.68 ms | **7.35 ms** | **4.24 ms** |
+| **Through Router** ($N=50$ Fan-out) | Throughput (RPS) | 126 RPS | **208 RPS** *(1.7x faster)* | **499 RPS** *(4.0x faster)* |
+| | Median Latency (p50) | 70.45 ms | **45.14 ms** | **11.18 ms** |
+| **Through Router** ($N=100$ Fan-out) | Throughput (RPS) | 72 RPS | **91 RPS** *(1.3x faster)* | **243 RPS** *(3.4x faster)* |
+| | Median Latency (p50) | 79.61 ms | **61.04 ms** | **22.56 ms** |
 
 ### The Core Answer:
 1. **For Narrow Queries (hitting 1 subgraph)**: $N$ can scale to **400+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~2,200–3,600 RPS at < 2ms p50. However, **cold query planning latency** spikes from 8ms to **9,875ms (nearly 10 seconds)**, and Router base memory balloons from **42 MB to 790 MB**.
