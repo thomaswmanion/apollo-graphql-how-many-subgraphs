@@ -25,21 +25,41 @@ All tests multiplexed $N$ dynamic subgraphs inside a **single backend process** 
 
 ## Key Findings At A Glance
 
+### What Do the Columns & Rows Mean?
+
+* **The Columns:**
+  * **Monograph Baseline**: A traditional monolithic GraphQL server. No router, no network hops—everything resolves in a single process.
+  * **Apollo Router ($N=X$)**: Apollo Router acting as a gateway in front of $X$ separate microservice subgraphs.
+
+* **The Rows:**
+  * **Wide Query**: A single query that requests fields from **all $N$ subgraphs simultaneously** (worst-case distributed fan-out).
+  * **Narrow Query**: A query that only requests fields from **1 subgraph**, even though $N$ total subgraphs exist in the schema (best-case routing).
+  * **RPS (Requests Per Second)**: Throughput—how many queries the system can complete each second (*higher is better*).
+  * **p50 Latency**: Median response time—what the typical user experiences (*lower is better*).
+  * **p99 Latency**: Tail latency—the slowest 1% of requests (*lower is better*).
+  * **Cold Plan Time**: How long the Router takes to calculate how to fetch a query the very first time it sees it (*lower is better*).
+  * **Rover Compose**: How long the CI/CD build step takes to stitch and validate all $N$ schemas into one (*lower is better*).
+  * **Router Memory**: RAM used by the Apollo Router process (*lower is better*).
+
+---
+
+### The Benchmark Comparison Matrix
+
 | Metric | Monograph Baseline | Apollo Router ($N=1$) | Apollo Router ($N=10$) | Apollo Router ($N=50$) | Apollo Router ($N=100$) | Apollo Router ($N=250$) | Apollo Router ($N=400$) [Extreme] |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Wide Query RPS** | **2,833 - 4,267** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
-| **Wide Query p50** | **0.90ms - 1.80ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
-| **Wide Query p99** | **3.04ms - 5.28ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
-| **Narrow Query RPS** | ~4,200 | 2,608 | 3,100 | 3,151 | 3,180 | 3,625 | 2,175 |
-| **Narrow Query p50** | 0.90ms | 2.88ms | 2.44ms | 1.92ms | 1.08ms | 0.94ms | 1.84ms |
-| **Cold Plan Time** | 1.83ms | 8.44ms | 6.85ms | 7.56ms | 7.42ms | **1,104.5ms** | **9,875.4ms (9.9s!)** |
-| **Rover Compose** | N/A | 779ms | 531ms | 808ms | 1,426ms | **8,151ms** | **23,303ms (23.3s)** |
-| **Router Memory** | N/A | 42.1 MB | 44.9 MB | 58.4 MB | 76.5 MB | **245.2 MB** | **789.8 MB (~0.8 GB)** |
+| **Wide Query RPS** (Throughput) | **2,833 - 4,267** | **2,709** | **337** | **95.8** | **66.1** | **24.3** | **43.5 (Rust)** |
+| **Wide Query p50** (Typical Latency) | **0.90ms - 1.80ms** | **2.94ms** | **26.89ms** | **72.58ms** | **72.11ms** | **208.86ms** | **58.45ms (Rust)** |
+| **Wide Query p99** (Worst 1% Latency) | **3.04ms - 5.28ms** | **7.43ms** | **46.05ms** | **184.69ms** | **120.07ms** | **344.59ms** | **142.82ms** |
+| **Narrow Query RPS** (1 Subgraph Hit) | ~4,200 | 2,608 | 3,100 | 3,151 | 3,180 | 3,625 | 2,175 |
+| **Narrow Query p50** (1 Subgraph Hit) | 0.90ms | 2.88ms | 2.44ms | 1.92ms | 1.08ms | 0.94ms | 1.84ms |
+| **Cold Plan Time** (First-time query) | 1.83ms | 8.44ms | 6.85ms | 7.56ms | 7.42ms | **1,104.5ms** | **9,875.4ms (9.9s!)** |
+| **Rover Compose** (CI/CD Build Time) | Instant | 779ms | 531ms | 808ms | 1,426ms | **8,151ms** | **23,303ms (23.3s)** |
+| **Router Memory** (RAM Footprint) | N/A | 42.1 MB | 44.9 MB | 58.4 MB | 76.5 MB | **245.2 MB** | **789.8 MB (~0.8 GB)** |
 
 ### The Core Answer:
-1. **For Isolated / Narrow Queries (0-1 hops)**: $N$ can scale to **400+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~2,200–3,600 RPS at < 2ms p50. However, **cold query planning latency** spikes from 8ms to **9,875ms (nearly 10 seconds)**, and Router base memory balloons from **42 MB to 790 MB**.
-2. **For Wide Queries (Entity Fan-Out)**: **$N = 10$ to $20$ is the steep cliff**. Beyond 10 subgraphs in a single query path, throughput collapses by **87.5%**, and p99 latency degrades by **6x to 46x**.
-3. **For CI/CD Composition**: Beyond **$N = 100$**, Rover composition scales quadratically ($O(N^2)$), jumping from 500ms to **8.1 seconds** at $N=250$, **12.0 seconds** at $N=300$, and **23.3 seconds** at $N=400$.
+1. **For Narrow Queries (hitting 1 subgraph)**: $N$ can scale to **400+ subgraphs** with **zero warm runtime throughput penalty**. Apollo Router's query plan cache ensures execution remains ~2,200–3,600 RPS at < 2ms p50. However, **cold query planning latency** spikes from 8ms to **9,875ms (nearly 10 seconds)**, and Router base memory balloons from **42 MB to 790 MB**.
+2. **For Wide Queries (fanning out to all subgraphs)**: **$N = 10$ to $20$ is the steep cliff**. Beyond 10 subgraphs in a single query path, throughput collapses by **87.5%**, and p99 latency degrades by **6x to 46x**.
+3. **For CI/CD Build Times**: Beyond **$N = 100$**, Rover composition scales quadratically ($O(N^2)$), jumping from 500ms to **8.1 seconds** at $N=250$, **12.0 seconds** at $N=300$, and **23.3 seconds** at $N=400$.
 
 ---
 
@@ -133,6 +153,16 @@ Requests Per Second (Higher is Better)
 ```
 
 ### Raw Experimental Data (Suite 1)
+
+> **Quick Column Guide:**
+> - **$N$**: Number of subgraphs in the supergraph schema.
+> - **Rover Compose**: Time for `rover` CLI to validate and compile the supergraph.
+> - **Router Memory**: Resident RAM used by `router.exe`.
+> - **Monograph Wide RPS**: Throughput of the monolithic backend executing all $N$ fields directly in-memory.
+> - **Router Narrow RPS**: Throughput when querying only 1 subgraph out of $N$.
+> - **Router Wide RPS**: Throughput when querying all $N$ subgraphs simultaneously.
+> - **Wide p50 / p99**: Typical (median) vs. worst 1% (tail) response times under full fan-out.
+> - **Cold Plan**: Latency of the very first request before Apollo Router caches the execution plan.
 
 | $N$ | Rover Compose Time | Supergraph Size | Router Memory | Monograph Wide RPS | Router Narrow RPS | Router Wide RPS | Router Wide p50 | Router Wide p99 | Cold Plan (Wide) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
