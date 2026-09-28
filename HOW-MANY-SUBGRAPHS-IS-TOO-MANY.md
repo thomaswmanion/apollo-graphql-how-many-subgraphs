@@ -177,7 +177,7 @@ We measured both **Narrow Queries** (`user { id name field_1 }`) and **Wide Quer
 
 ### Throughput (RPS) Comparison
 
-![Throughput Scaling Curve](./assets/chart_throughput_scaling.svg)
+![Throughput Scaling Curve](https://raw.githubusercontent.com/thomaswmanion/apollo-graphql-how-many-subgraphs/main/assets/chart_throughput_scaling.svg)
 
 ```
 Requests Per Second (Higher is Better)
@@ -263,7 +263,7 @@ Apollo Router caches compiled query plans in an LRU cache. Once planned, warm qu
 - At $N=250$, cold planning reaches **1,104ms (1.1 seconds)**.
 - At $N=400$, cold planning explodes to **9,875ms (nearly 10 seconds!)**!
 
-![Latency & Cold Query Plan Explosion](./assets/chart_latency_coldplan.svg)
+![Latency & Cold Query Plan Explosion](https://raw.githubusercontent.com/thomaswmanion/apollo-graphql-how-many-subgraphs/main/assets/chart_latency_coldplan.svg)
 
 In a graph with hundreds of subgraphs, a sudden influx of novel queries or a router restart causes severe latency spikes and potential gateway timeouts as the query planner computes multi-hundred-node execution plans.
 
@@ -287,7 +287,7 @@ Memory footprint for `router.exe` idle baseline and under query execution:
 - $N=250$: 245.2 MB
 - $N=400$: **789.8 MB (~0.8 GB)**
 
-![Rover Composition Time & Router Memory](./assets/chart_composition_memory.svg)
+![Rover Composition Time & Router Memory](https://raw.githubusercontent.com/thomaswmanion/apollo-graphql-how-many-subgraphs/main/assets/chart_composition_memory.svg)
 
 As $N$ grows, the AST representation of the supergraph and the internal planning graphs require significantly higher baseline resident memory, crossing three-quarters of a gigabyte at 400 subgraphs.
 
